@@ -2,7 +2,7 @@
   <img src="assets/logos/main_logo.png" width="180" alt="$OTT Logo">
 </p>
 
-<h1 align="center">$OTT — 넘어져도 다시 일어나는 코인 🎎</h1>
+<h1 align="center">$OTT — The Coin That Always Gets Back Up 🎎</h1>
 
 <p align="center">
   <em>"Fall Seven Times, Stand Up Eight." — 七転八起</em>
@@ -19,9 +19,9 @@
 
 ## 🎎 What is $OTT?
 
-**$OTT (오뚜기)** is an emotional utility memecoin on Solana. 
+**$OTT (Ottogi)** is an emotional utility memecoin built on Solana.
 
-오뚜기 means "tumbling doll" — a figure that always stands back up no matter how many times it falls. Just like crypto holders who endure dips and come back stronger.
+Ottogi (오뚜기) means "tumbling doll" — a figure that always stands back up no matter how many times it falls. Just like crypto holders who endure dips and come back stronger.
 
 **Hold $OTT → Receive Cheer NFTs automatically in your wallet.**
 
@@ -33,9 +33,9 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 
 | Feature | Description |
 |---------|-------------|
-| 🪙 **Fair Launch** | Pump.fun — No presale, no premine |
+| 🪙 **Fair Launch** | Via Pump.fun — No presale, no premine |
 | 🎨 **Cheer NFT Airdrop** | Hold tokens → Receive encouragement NFTs |
-| 📦 **Compressed NFT** | 1,000x cheaper than regular NFTs |
+| 📦 **Compressed NFT** | 1,000x cheaper minting than regular NFTs |
 | 🎯 **5 NFT Grades** | Common → Rare → Epic → Legendary → Mythic |
 | 🌍 **4 Languages** | Korean, English, Japanese, Chinese |
 | 🔒 **LP Burned** | Liquidity permanently locked |
@@ -53,7 +53,7 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 | **Team Lock** | 6-month lockup |
 | **LP** | Burned (permanently locked) |
 
-> **Supply Meaning:** 8.1B (world population) × 100 (100% support) × 3 ("Life gives 3 chances") = 2.43T — 300 chances for every person on Earth.
+> **Supply Meaning:** 8.1B (world population) × 100 (100% support) × 3 ("Life gives you 3 chances") = 2.43T — 300 chances for every person on Earth.
 
 ---
 
@@ -61,7 +61,7 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 
 <table>
 <tr>
-<td align="center"><strong>⚪ Common</strong><br>Short words<br>"희망", "Fighting!"</td>
+<td align="center"><strong>⚪ Common</strong><br>Short words<br>"Hope", "Fighting!"</td>
 <td align="center"><strong>🔵 Rare</strong><br>One-liner<br>"Don't give up!"</td>
 <td align="center"><strong>🟣 Epic</strong><br>2-3 sentences<br>Decorated card</td>
 <td align="center"><strong>🟡 Legendary</strong><br>40 limited<br>AI Art + Quote</td>
@@ -102,11 +102,11 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 **1,793 cheer messages** across 4 languages and 5 categories.
 
 ```
-⚪ Common (1,040): 희망 · 화이팅 · Hope · 勇気
-🔵 Rare (500): "포기하지 마, 오뚜기처럼!"
-🟣 Epic (200): "넘어져도 괜찮아, 다시 일어나면 돼. 넌 그럴 수 있는 사람이야!"
-🟡 Legendary (50): "넘어지는 것은 실패가 아니다. 넘어진 채 일어나지 않는 것이 실패다."
-🔴 Mythic (3): Ultimate messages with artwork
+⚪ Common (1,040): Hope · Fighting · Courage · Love
+🔵 Rare (500): "Don't give up, stand back up like Ottogi!"
+🟣 Epic (200): "It's okay to fall. Like Ottogi, just get back up. You can do it!"
+🟡 Legendary (50): "Falling is not failure. Staying down is failure."
+🔴 Mythic (3): Ultimate messages with exclusive artwork
 ```
 
 ---
@@ -117,8 +117,8 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 |-------|----------|------------|
 | **1. Genesis** | Week 1-2 | Token launch, Website, Telegram, X |
 | **2. Cheers Begin** | Week 3-6 | cNFT system, Auto-airdrop bot, NFT gallery |
-| **3. Growth** | Month 2-4 | 1K+ holders, KOL marketing, Marketplace |
-| **4. Expansion** | Month 4+ | Multi-chain, Merch, Mobile app, DAO |
+| **3. Growth** | Month 2-4 | 1K+ holders, KOL marketing, Marketplace integration |
+| **4. Expansion** | Month 4+ | Multi-chain, Merch, Mobile app, DAO transition |
 
 ---
 
@@ -127,7 +127,7 @@ When the market crashes and your portfolio bleeds red, a warm message arrives in
 ```
 ott-coin/
 ├── docs/
-│   ├── WHITEPAPER.md          # 백서 (한국어)
+│   ├── WHITEPAPER.md          # Whitepaper (Korean)
 │   ├── WHITEPAPER_EN.md       # Whitepaper (English)
 │   ├── TECHNICAL_SPEC.md      # Technical Specification
 │   └── OTT_Whitepaper_v2.pdf  # PDF Version
@@ -140,7 +140,7 @@ ott-coin/
 ├── data/
 │   └── messages/              # Cheer message database
 │       ├── cheer_messages.db  # SQLite DB (1,793 messages)
-│       ├── add_message.py     # Add messages
+│       ├── add_message.py     # Add messages script
 │       └── stats.py           # DB statistics
 └── scripts/                   # Utility scripts
 ```
@@ -149,8 +149,8 @@ ott-coin/
 
 ## 📄 Documents
 
-- 📖 [Whitepaper (한국어)](docs/WHITEPAPER.md)
-- 📖 [Whitepaper (English)](docs/WHITEPAPER_EN.md)  
+- 📖 [Whitepaper (Korean)](docs/WHITEPAPER.md)
+- 📖 [Whitepaper (English)](docs/WHITEPAPER_EN.md)
 - 📄 [Whitepaper PDF](docs/OTT_Whitepaper_v2.pdf)
 - 🔧 [Technical Specification](docs/TECHNICAL_SPEC.md)
 
@@ -165,12 +165,12 @@ ott-coin/
 - DYOR (Do Your Own Research)
 - Only invest what you can afford to lose
 
-See the [full disclaimer](docs/WHITEPAPER.md#-면책-조항-disclaimer) in the whitepaper.
+See the [full disclaimer](docs/WHITEPAPER.md) in the whitepaper.
 
 ---
 
 <p align="center">
-  <strong>$OTT — 오뚜기처럼, 다시. 🎎</strong><br>
+  <strong>$OTT — Like Ottogi, Rise Again. 🎎</strong><br>
   <em>Fall Seven Times, Stand Up Eight.</em>
 </p>
 
