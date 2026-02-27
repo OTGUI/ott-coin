@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$OTT — The Coin That Always Gets Back Up 🎎</title>
+  <meta name="description" content="$OTT is an emotional utility memecoin on Solana. Hold $OTT and receive Cheer NFTs — warm encouragement messages delivered straight to your wallet.">
+  <meta property="og:title" content="$OTT — The Coin That Always Gets Back Up 🎎">
+  <meta property="og:description" content="Hold $OTT and receive Cheer NFTs. Fall Seven Times, Stand Up Eight.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ott-orange': '#FF6B35',
+            'ott-dark': '#0f0f1a',
+            'ott-darker': '#080812',
+            'ott-card': '#14142a',
+            'ott-border': '#1f1f3a',
+            'ott-teal': '#4ECDC4',
+            'ott-yellow': '#FFE66D',
+            'ott-pink': '#FF8B94',
+            'ott-green': '#A8E6CF',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #FF6B35, #FFB347, #FF6B35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glow-orange {
+      box-shadow: 0 0 60px rgba(255, 107, 53, 0.3);
+    }
+    
+    .glow-gold { box-shadow: 0 0 30px rgba(241, 196, 15, 0.4); }
+    .glow-diamond { box-shadow: 0 0 30px rgba(52, 152, 219, 0.4); }
+    .glow-platinum { box-shadow: 0 0 30px rgba(189, 195, 199, 0.4); }
+    
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
+    }
+    
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .pulse-glow {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 30px rgba(255, 107, 53, 0.2); }
+      50% { box-shadow: 0 0 60px rgba(255, 107, 53, 0.5); }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .bg-grid {
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    html { scroll-behavior: smooth; }
+    
+    .nav-blur {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .tier-bar {
+      transition: width 1s ease;
+    }
+  </style>
+</head>
+<body class="bg-ott-darker text-white overflow-x-hidden">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="fixed top-0 w-full z-50 nav-blur bg-ott-darker/80 border-b border-ott-border">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="OTT" class="w-10 h-10 rounded-full">
+        <span class="text-xl font-bold">$OTT</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#nft" class="hover:text-white transition">NFT</a>
+        <a href="#tokenomics" class="hover:text-white transition">Tokenomics</a>
+        <a href="#roadmap" class="hover:text-white transition">Roadmap</a>
+        <a href="https://github.com/OTGUI/ott-coin/raw/main/docs/OTT_Whitepaper_v2.pdf" target="_blank" class="hover:text-white transition">Whitepaper</a>
+      </div>
+      <div class="flex gap-3">
+        <a href="#buy" class="bg-ott-orange hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-semibold transition">Buy $OTT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="min-h-screen flex items-center justify-center relative bg-grid pt-20">
+    <div class="absolute inset-0 bg-gradient-to-b from-ott-orange/5 via-transparent to-transparent"></div>
+    <div class="text-center px-6 relative z-10">
+      <div class="float-animation mb-8">
+        <img src="assets/logo.png" alt="$OTT Logo" class="w-40 h-40 md:w-52 md:h-52 mx-auto rounded-full pulse-glow">
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black mb-4">
+        <span class="gradient-text">$OTT</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-2">The Coin That Always Gets Back Up 🎎</p>
+      <p class="text-base md:text-lg text-gray-500 italic mb-10">
+        "Fall Seven Times, Stand Up Eight." — 七転八起
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a href="#buy" class="bg-ott-orange hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-bold transition transform hover:scale-105">
+          🚀 Buy on Raydium
+        </a>
+        <a href="https://github.com/OTGUI/ott-coin/raw/main/docs/OTT_Whitepaper_v2.pdf" target="_blank" class="border border-ott-orange text-ott-orange hover:bg-ott-orange hover:text-white px-8 py-4 rounded-full text-lg font-bold transition">
+          📄 Whitepaper
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="bg-ott-card border border-ott-border rounded-xl p-4">
+          <div class="text-2xl md:text-3xl font-black text-ott-orange">2.43T</div>
+          <div class="text-xs text-gray-500 mt-1">Total Supply</div>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-xl p-4">
+          <div class="text-2xl md:text-3xl font-black text-ott-teal">1,793</div>
+          <div class="text-xs text-gray-500 mt-1">Cheer Messages</div>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-xl p-4">
+          <div class="text-2xl md:text-3xl font-black text-ott-yellow">5</div>
+          <div class="text-xs text-gray-500 mt-1">NFT Grades</div>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-xl p-4">
+          <div class="text-2xl md:text-3xl font-black text-ott-green">4</div>
+          <div class="text-xs text-gray-500 mt-1">Languages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">What is <span class="gradient-text">$OTT</span>?</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">An emotional utility memecoin that sends encouragement to your wallet</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 fade-in">
+        <div class="bg-ott-card border border-ott-border rounded-2xl p-8">
+          <div class="text-4xl mb-4">🎎</div>
+          <h3 class="text-xl font-bold mb-3">The Ottogi Spirit</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Ottogi (오뚜기) is a traditional Korean tumbling doll that always stands back up, no matter how many times it falls. In crypto, we face dips, crashes, and FUD — but like Ottogi, <strong class="text-white">we don't stay down.</strong>
+          </p>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-2xl p-8">
+          <div class="text-4xl mb-4">💌</div>
+          <h3 class="text-xl font-bold mb-3">Cheer NFT Airdrop</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Hold $OTT and receive <strong class="text-ott-orange">Cheer NFTs</strong> automatically in your wallet. Warm encouragement messages, inspiring quotes, and exclusive artwork — delivered when you need them most.
+          </p>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-2xl p-8">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-bold mb-3">Fair & Safe</h3>
+          <p class="text-gray-400 leading-relaxed">
+            <strong class="text-white">No presale. No premine. LP burned forever.</strong> Launched via Pump.fun with 100% fair launch mechanics. Nobody gets an unfair advantage — not even the team.
+          </p>
+        </div>
+        <div class="bg-ott-card border border-ott-border rounded-2xl p-8">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-bold mb-3">Built on Solana</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Lightning-fast transactions (~400ms), near-zero gas fees (~$0.00025), and <strong class="text-white">Compressed NFT</strong> technology that makes mass airdrops 1,000x cheaper than regular NFTs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NFT SYSTEM ===== -->
+  <section id="nft" class="py-24 px-6 bg-gradient-to-b from-transparent via-ott-orange/5 to-transparent">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">NFT <span class="gradient-text">Grade System</span></h2>
+        <p class="text-gray-400 text-lg">5 grades of encouragement, from common words to ultimate masterpieces</p>
+      </div>
+
+      <!-- Grade Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16 fade-in">
+        <div class="bg-ott-card border border-gray-600 rounded-xl p-4 text-center card-hover">
+          <div class="text-3xl mb-2">⚪</div>
+          <div class="font-bold text-sm">Common</div>
+          <div class="text-xs text-gray-500 mt-1">80%</div>
+          <div class="text-xs text-gray-600 mt-2">Short words</div>
+          <div class="text-xs text-gray-500 italic mt-1">"Hope" "Courage"</div>
+        </div>
+        <div class="bg-ott-card border border-blue-500/30 rounded-xl p-4 text-center card-hover">
+          <div class="text-3xl mb-2">🔵</div>
+          <div class="font-bold text-sm text-blue-400">Rare</div>
+          <div class="text-xs text-gray-500 mt-1">15%</div>
+          <div class="text-xs text-gray-600 mt-2">One-liner</div>
+          <div class="text-xs text-blue-400/60 italic mt-1">"Don't give up!"</div>
+        </div>
+        <div class="bg-ott-card border border-purple-500/30 rounded-xl p-4 text-center card-hover">
+          <div class="text-3xl mb-2">🟣</div>
+          <div class="font-bold text-sm text-purple-400">Epic</div>
+          <div class="text-xs text-gray-500 mt-1">4.5%</div>
+          <div class="text-xs text-gray-600 mt-2">Decorated card</div>
+          <div class="text-xs text-purple-400/60 italic mt-1">"You can do it!"</div>
+        </div>
+        <div class="bg-ott-card border border-yellow-500/30 rounded-xl p-4 text-center card-hover">
+          <div class="text-3xl mb-2">🟡</div>
+          <div class="font-bold text-sm text-yellow-400">Legendary</div>
+          <div class="text-xs text-gray-500 mt-1">0.48%</div>
+          <div class="text-xs text-yellow-600 mt-2">40 Limited</div>
+          <div class="text-xs text-yellow-400/60 italic mt-1">AI Art + Quote</div>
+        </div>
+        <div class="bg-ott-card border border-red-500/30 rounded-xl p-4 text-center card-hover col-span-2 md:col-span-1">
+          <div class="text-3xl mb-2">🔴</div>
+          <div class="font-bold text-sm text-red-400">Mythic</div>
+          <div class="text-xs text-gray-500 mt-1">0.02%</div>
+          <div class="text-xs text-red-600 mt-2">Only 3 Exist</div>
+          <div class="text-xs text-red-400/60 italic mt-1">Ultimate Art</div>
+        </div>
+      </div>
+
+      <!-- Mythic Showcase -->
+      <div class="text-center mb-8 fade-in">
+        <h3 class="text-2xl font-bold mb-2">🔴 Mythic NFTs — <span class="text-red-400">Only 3 Exist</span></h3>
+        <p class="text-gray-500 text-sm">"Life gives you 3 chances" — Each one is completely unique</p>
+      </div>
+      
+      <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto fade-in">
+        <div class="text-center">
+          <img src="assets/mythic_gold.png" alt="Gold" class="w-full aspect-square object-cover rounded-2xl border-2 border-yellow-500 glow-gold mb-3">
+          <div class="font-bold text-yellow-400">🥇 Gold</div>
+          <div class="text-xs text-gray-500">Embossed Coin</div>
+        </div>
+        <div class="text-center">
+          <img src="assets/mythic_diamond.png" alt="Diamond" class="w-full aspect-square object-cover rounded-2xl border-2 border-blue-400 glow-diamond mb-3">
+          <div class="font-bold text-blue-400">💎 Diamond</div>
+          <div class="text-xs text-gray-500">Crystal Texture</div>
+        </div>
+        <div class="text-center">
+          <img src="assets/mythic_platinum.png" alt="Platinum" class="w-full aspect-square object-cover rounded-2xl border-2 border-gray-400 glow-platinum mb-3">
+          <div class="font-bold text-gray-300">🪙 Platinum</div>
+          <div class="text-xs text-gray-500">Victory Pose</div>
+        </div>
+      </div>
+
+      <!-- Holder Tiers -->
+      <div class="mt-20 fade-in">
+        <h3 class="text-2xl font-bold text-center mb-8">🌱 Holder Tiers</h3>
+        <p class="text-gray-400 text-center text-sm mb-8">The more you hold, the more often you receive Cheer NFTs — and with better odds</p>
+        
+        <div class="space-y-3 max-w-2xl mx-auto">
+          <div class="flex items-center gap-4 bg-ott-card border border-ott-border rounded-xl p-4">
+            <div class="text-2xl">🌱</div>
+            <div class="flex-1">
+              <div class="font-semibold text-sm">Seed</div>
+              <div class="text-xs text-gray-500">10K — 99K $OTT</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">Weekly</div>
+              <div class="text-xs text-ott-orange">×1.0</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-ott-card border border-ott-border rounded-xl p-4">
+            <div class="text-2xl">🌿</div>
+            <div class="flex-1">
+              <div class="font-semibold text-sm">Sprout</div>
+              <div class="text-xs text-gray-500">100K — 999K $OTT</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">2x / week</div>
+              <div class="text-xs text-ott-teal">×1.5</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-ott-card border border-ott-border rounded-xl p-4">
+            <div class="text-2xl">🌳</div>
+            <div class="flex-1">
+              <div class="font-semibold text-sm">Tree</div>
+              <div class="text-xs text-gray-500">1M — 99M $OTT</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">3x / week</div>
+              <div class="text-xs text-ott-yellow">×2.5</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-ott-card border border-ott-border rounded-xl p-4">
+            <div class="text-2xl">🏔</div>
+            <div class="flex-1">
+              <div class="font-semibold text-sm">Mountain</div>
+              <div class="text-xs text-gray-500">100M — 9.9B $OTT</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">5x / week</div>
+              <div class="text-xs text-ott-green">×4.0</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-ott-card border border-ott-orange/30 rounded-xl p-4">
+            <div class="text-2xl">🌍</div>
+            <div class="flex-1">
+              <div class="font-semibold text-sm text-ott-orange">Earth</div>
+              <div class="text-xs text-gray-500">10B+ $OTT</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-ott-orange">Daily</div>
+              <div class="text-xs text-ott-orange font-bold">×6.0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOKENOMICS ===== -->
+  <section id="tokenomics" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl md:text-5xl font-black mb-4"><span class="gradient-text">Tokenomics</span></h2>
+        <p class="text-gray-400 text-lg">Fair, transparent, and meaningful</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 fade-in">
+        <!-- Left: Supply info -->
+        <div>
+          <div class="bg-ott-card border border-ott-border rounded-2xl p-8 mb-6">
+            <div class="text-sm text-gray-500 mb-2">Total Supply</div>
+            <div class="text-3xl font-black text-ott-orange mb-4">2,430,000,000,000</div>
+            <div class="text-sm text-gray-400 leading-relaxed">
+              <strong class="text-white">8.1B</strong> (world population) × 
+              <strong class="text-white">100</strong> (100% support) × 
+              <strong class="text-white">3</strong> ("Life gives 3 chances")<br>
+              = <strong class="text-ott-orange">2.43 Trillion</strong> — 300 chances for every person on Earth
+            </div>
+          </div>
+          
+          <div class="space-y-3">
+            <div class="flex justify-between items-center bg-ott-card border border-ott-border rounded-xl p-4">
+              <span class="text-sm">Decimals</span>
+              <span class="font-bold">6</span>
+            </div>
+            <div class="flex justify-between items-center bg-ott-card border border-ott-border rounded-xl p-4">
+              <span class="text-sm">Additional Minting</span>
+              <span class="font-bold text-red-400">Impossible</span>
+            </div>
+            <div class="flex justify-between items-center bg-ott-card border border-ott-border rounded-xl p-4">
+              <span class="text-sm">LP Status</span>
+              <span class="font-bold text-green-400">🔥 Burned Forever</span>
+            </div>
+            <div class="flex justify-between items-center bg-ott-card border border-ott-border rounded-xl p-4">
+              <span class="text-sm">Team Lock</span>
+              <span class="font-bold">6 Months</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Distribution -->
+        <div>
+          <div class="bg-ott-card border border-ott-border rounded-2xl p-8">
+            <h3 class="text-lg font-bold mb-6">Distribution</h3>
+            
+            <!-- LP -->
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Liquidity Pool (LP)</span>
+                <span class="text-ott-orange font-bold">85%</span>
+              </div>
+              <div class="w-full bg-ott-darker rounded-full h-3">
+                <div class="bg-ott-orange h-3 rounded-full" style="width: 85%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1">Pump.fun → Raydium · LP Burned</div>
+            </div>
+            
+            <!-- Airdrop -->
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Airdrop Pool</span>
+                <span class="text-ott-teal font-bold">5%</span>
+              </div>
+              <div class="w-full bg-ott-darker rounded-full h-3">
+                <div class="bg-ott-teal h-3 rounded-full" style="width: 5%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1">NFT minting gas + community events</div>
+            </div>
+
+            <!-- Team -->
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Team</span>
+                <span class="text-ott-yellow font-bold">5%</span>
+              </div>
+              <div class="w-full bg-ott-darker rounded-full h-3">
+                <div class="bg-ott-yellow h-3 rounded-full" style="width: 5%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1">6-month lockup</div>
+            </div>
+
+            <!-- Marketing -->
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Marketing</span>
+                <span class="text-ott-green font-bold">3%</span>
+              </div>
+              <div class="w-full bg-ott-darker rounded-full h-3">
+                <div class="bg-ott-green h-3 rounded-full" style="width: 3%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1">KOL, events, content</div>
+            </div>
+
+            <!-- Reserve -->
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Community Reserve</span>
+                <span class="text-ott-pink font-bold">2%</span>
+              </div>
+              <div class="w-full bg-ott-darker rounded-full h-3">
+                <div class="bg-ott-pink h-3 rounded-full" style="width: 2%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1">DAO voting, future use</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="py-24 px-6 bg-gradient-to-b from-transparent via-ott-teal/5 to-transparent">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">How It <span class="gradient-text">Works</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-6 fade-in">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-ott-orange/20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">1</div>
+          <h3 class="font-bold mb-2">Buy $OTT</h3>
+          <p class="text-sm text-gray-400">Get $OTT on Raydium or Pump.fun with your Phantom wallet</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-ott-orange/20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">2</div>
+          <h3 class="font-bold mb-2">Hold 10K+</h3>
+          <p class="text-sm text-gray-400">Hold at least 10,000 $OTT to qualify for Cheer NFT airdrops</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-ott-orange/20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">3</div>
+          <h3 class="font-bold mb-2">Receive NFTs</h3>
+          <p class="text-sm text-gray-400">Cheer NFTs are automatically airdropped to your wallet on schedule</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-ott-orange/20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">4</div>
+          <h3 class="font-bold mb-2">Get Inspired</h3>
+          <p class="text-sm text-gray-400">Open your NFT for a warm message. Collect, share, or trade on marketplaces</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section id="roadmap" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl md:text-5xl font-black mb-4"><span class="gradient-text">Roadmap</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-4 fade-in">
+        <div class="bg-ott-card border border-ott-orange/30 rounded-2xl p-6 card-hover">
+          <div class="text-ott-orange font-bold text-sm mb-1">PHASE 1</div>
+          <div class="font-bold mb-3">Genesis</div>
+          <div class="text-xs text-gray-500 mb-3">Week 1-2</div>
+          <ul class="text-xs text-gray-400 space-y-2">
+            <li>🚀 Token launch on Pump.fun</li>
+            <li>🌐 Website launch</li>
+            <li>💬 Telegram & X channels</li>
+            <li>📊 CoinGecko listing</li>
+          </ul>
+        </div>
+        <div class="bg-ott-card border border-ott-teal/30 rounded-2xl p-6 card-hover">
+          <div class="text-ott-teal font-bold text-sm mb-1">PHASE 2</div>
+          <div class="font-bold mb-3">Cheers Begin</div>
+          <div class="text-xs text-gray-500 mb-3">Week 3-6</div>
+          <ul class="text-xs text-gray-400 space-y-2">
+            <li>🎨 cNFT system live</li>
+            <li>🤖 Auto-airdrop bot</li>
+            <li>🖼 NFT gallery page</li>
+            <li>🔧 Telegram bot v2</li>
+          </ul>
+        </div>
+        <div class="bg-ott-card border border-ott-yellow/30 rounded-2xl p-6 card-hover">
+          <div class="text-ott-yellow font-bold text-sm mb-1">PHASE 3</div>
+          <div class="font-bold mb-3">Growth</div>
+          <div class="text-xs text-gray-500 mb-3">Month 2-4</div>
+          <ul class="text-xs text-gray-400 space-y-2">
+            <li>👥 1,000+ holders</li>
+            <li>📈 DEX Screener trending</li>
+            <li>🤝 KOL partnerships</li>
+            <li>🏪 Tensor & Magic Eden</li>
+          </ul>
+        </div>
+        <div class="bg-ott-card border border-ott-green/30 rounded-2xl p-6 card-hover">
+          <div class="text-ott-green font-bold text-sm mb-1">PHASE 4</div>
+          <div class="font-bold mb-3">Expansion</div>
+          <div class="text-xs text-gray-500 mb-3">Month 4+</div>
+          <ul class="text-xs text-gray-400 space-y-2">
+            <li>🌐 Multi-chain expansion</li>
+            <li>🧸 Physical merch</li>
+            <li>📱 Mobile app</li>
+            <li>🏛 DAO transition</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BUY ===== -->
+  <section id="buy" class="py-24 px-6 bg-gradient-to-b from-transparent via-ott-orange/5 to-transparent">
+    <div class="max-w-3xl mx-auto text-center fade-in">
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Get <span class="gradient-text">$OTT</span></h2>
+      <p class="text-gray-400 text-lg mb-8">Join the movement. Stand back up.</p>
+      
+      <div class="bg-ott-card border border-ott-border rounded-2xl p-8 mb-8">
+        <div class="text-sm text-gray-500 mb-2">Contract Address</div>
+        <div class="bg-ott-darker rounded-xl p-4 font-mono text-sm text-ott-orange break-all" id="contract">
+          Coming Soon — Launch Pending
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="bg-ott-orange hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-bold transition transform hover:scale-105">
+          Buy on Raydium
+        </a>
+        <a href="#" class="border border-gray-600 text-gray-300 hover:border-ott-orange hover:text-ott-orange px-8 py-4 rounded-full text-lg font-bold transition">
+          View on DexScreener
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY ===== -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center fade-in">
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Join the <span class="gradient-text">Community</span></h2>
+      <p class="text-gray-400 text-lg mb-10">Be part of the Ottogi family</p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="#" class="bg-ott-card border border-ott-border rounded-xl p-6 card-hover block">
+          <div class="text-3xl mb-2">💬</div>
+          <div class="font-semibold text-sm">Telegram</div>
+        </a>
+        <a href="#" class="bg-ott-card border border-ott-border rounded-xl p-6 card-hover block">
+          <div class="text-3xl mb-2">🐦</div>
+          <div class="font-semibold text-sm">X (Twitter)</div>
+        </a>
+        <a href="https://github.com/OTGUI/ott-coin" target="_blank" class="bg-ott-card border border-ott-border rounded-xl p-6 card-hover block">
+          <div class="text-3xl mb-2">🐙</div>
+          <div class="font-semibold text-sm">GitHub</div>
+        </a>
+        <a href="https://github.com/OTGUI/ott-coin/raw/main/docs/OTT_Whitepaper_v2.pdf" target="_blank" class="bg-ott-card border border-ott-border rounded-xl p-6 card-hover block">
+          <div class="text-3xl mb-2">📄</div>
+          <div class="font-semibold text-sm">Whitepaper</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <section class="py-12 px-6 border-t border-ott-border">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center text-xs text-gray-600 leading-relaxed">
+        <p class="mb-2"><strong class="text-gray-500">⚠️ Disclaimer:</strong> $OTT is a memecoin. This website is not investment advice. You may lose your entire investment. No guarantee of price, liquidity, or returns. DYOR. Only invest what you can afford to lose.</p>
+        <p>$OTT tokens are not securities, equity, bonds, or financial instruments. Purchasing $OTT constitutes acceptance of all terms outlined in the <a href="https://github.com/OTGUI/ott-coin/raw/main/docs/OTT_Whitepaper_v2.pdf" class="text-ott-orange hover:underline">whitepaper</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-8 px-6 border-t border-ott-border">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="OTT" class="w-8 h-8 rounded-full">
+        <span class="font-bold">$OTT</span>
+        <span class="text-gray-600 text-sm">— Like Ottogi, Rise Again 🎎</span>
+      </div>
+      <div class="text-sm text-gray-600">
+        © 2026 OTT Project. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL ANIMATION ===== -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
