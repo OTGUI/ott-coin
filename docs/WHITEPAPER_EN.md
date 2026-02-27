@@ -258,7 +258,7 @@ No custom Solana Programs required for Phase 1–2. All functionality is achieva
 ### Phase 2: Cheers Begin (Week 3–6)
 
 - Raydium CLMM main liquidity pool creation
-- v1→v2 one-way swap system
+- v1→v2 one-way swap system (1:1 exchange + 30% bonus airdrop for Phase 1 holders)
 - cNFT airdrop system build (Merkle Tree, message DB) — **NFT airdrops start here**
 - Automated airdrop bot development and mainnet launch
 - NFT gallery page launch
