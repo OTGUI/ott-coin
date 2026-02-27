@@ -245,18 +245,21 @@ No custom Solana Programs required for Phase 1–2. All functionality is achieva
 
 ## 6. Roadmap
 
-### Phase 1: Genesis (Week 1–2)
+### Phase 1: Genesis (Week 1–2) — No NFT
 
-- $OTTOGI token launch on Pump.fun
+- $OTT token launch on Pump.fun (community building phase)
 - Logo and brand identity establishment
-- Landing page deployment (ottogi.fun)
+- Landing page deployment (ottcoin.life)
 - Telegram group + bot launch
 - X (Twitter) account + initial meme content
-- CoinGecko / DexScreener listing
+- DexScreener listing
+- ℹ️ NFTs are NOT issued during Phase 1 — focus is on community building
 
 ### Phase 2: Cheers Begin (Week 3–6)
 
-- cNFT airdrop system build (Merkle Tree, message DB)
+- Raydium CLMM main liquidity pool creation
+- v1→v2 one-way swap system
+- cNFT airdrop system build (Merkle Tree, message DB) — **NFT airdrops start here**
 - Automated airdrop bot development and mainnet launch
 - NFT gallery page launch
 - Telegram bot enhancements (balance check, NFT viewer, etc.)
