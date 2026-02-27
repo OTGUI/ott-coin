@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head><title>Sign Merkle Tree TX</title>
-<style>body{font-family:sans-serif;max-width:600px;margin:50px auto;text-align:center;background:#1a1a2e;color:white}
+<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<style>
+body{font-family:sans-serif;max-width:600px;margin:50px auto;text-align:center;background:#1a1a2e;color:white}
 button{background:#ff6b35;color:white;border:none;padding:15px 30px;font-size:18px;border-radius:10px;cursor:pointer;margin:10px}
-button:hover{background:#e55a2b}.info{background:#2a2a4e;padding:15px;border-radius:10px;margin:10px;word-break:break-all;font-size:12px}</style>
+button:hover{background:#e55a2b}
+.info{background:#2a2a4e;padding:15px;border-radius:10px;margin:10px;word-break:break-all;font-size:12px}
+#status{margin-top:20px;font-size:16px}
+a{color:#ff6b35}
+</style>
 </head>
 <body>
 <h1>🎎 Create $OTT Merkle Tree</h1>
 <p>Depth: 14 | Capacity: 16,384 NFTs</p>
 <div class="info"><b>Tree Address:</b><br>2AbJRFmqj3YSD9HxfbJ2ie8CrdwYDosAWUCfNrqxtfWe</div>
-<button onclick="signTx()">Sign with Phantom 🔑</button>
+<button id="signBtn" onclick="signTx()">Sign with Phantom 🔑</button>
 <p id="status"></p>
 <script>
-const txBase64 = "AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACksEpVNAufOdFCLvu9m9Lpu0RgBdQR2xCT4hvpNiQ04Cz94Hr/dGqJ3p+S6OgYAKTptekpLJiYQOsSrBOYwG4JAgAEB4/GIPBMLtY745y0VNTHXbKJ33Ukp4CtZ31UaakSCICBEVCynDd6PXRQ37Q1xoRyNtkjQd+gWKTgH1GCcPjIozfmfJbkTWt1n4kSNxp365Kph9Jj2w+cdL/7ggjtja8U5wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmIuA63k1KGmyJHRfWd2/iiZYyhPcaIEhJjUcrgfBpaUJKhPulcQcugimf1rGfo334doRYl4dZBN/j08jgwN/FAu8D8C7R8ovdMQRLpSrE8+jxjTl3BfqywPNGiPNfnh88txjboZvp6VdQtH7vChRhOeDGmVqMOy1hthA7yuAHZgCAwIAATQAAAAAgMo+DQAAAAA4fAAAAAAAAAkqE+6VxBy6CKZ/WsZ+jffh2hFiXh1kE3+PTyODA38UBAcCAQAABgUDEaVTiI5Zyi/cDgAAAEAAAAAA";
+const txBase64 = `AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIH`;
+
 async function signTx() {
   const status = document.getElementById('status');
+  const btn = document.getElementById('signBtn');
+  
   try {
-    if (!window.solana || !window.solana.isPhantom) {
-      status.textContent = 'Phantom wallet not found!';
+    // Check Phantom
+    const provider = window.phantom?.solana;
+    if (!provider?.isPhantom) {
+      status.textContent = '❌ Phantom wallet not found! Please install Phantom.';
       return;
     }
-    await window.solana.connect();
-    status.textContent = 'Signing transaction...';
-    const tx = Uint8Array.from(atob(txBase64), c => c.charCodeAt(0));
-    const signed = await window.solana.signTransaction(
-      solanaWeb3.Transaction.from(tx)
-    );
-    status.textContent = 'Sending transaction...';
-    // We need web3 to send
-    const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
-    const sig = await connection.sendRawTransaction(signed.serialize());
-    status.innerHTML = '✅ Success! TX: <a href="https://solscan.io/tx/'+sig+'" style="color:#ff6b35">'+sig.slice(0,20)+'...</a>';
+    
+    // Connect
+    status.textContent = '🔄 Connecting to Phantom...';
+    const resp = await provider.connect();
+    status.textContent = '🔄 Connected! Please approve the transaction...';
+    
+    // Decode base64 transaction
+    const response = await fetch('https://raw.githubusercontent.com/OTGUI/ott-coin/main/tx_data.txt');
+    const txData = await response.text();
+    const txBytes = Uint8Array.from(atob(txData.trim()), c => c.charCodeAt(0));
+    
+    // Deserialize and sign
+    const tx = solanaWeb3.Transaction.from(txBytes);
+    const signedTx = await provider.signTransaction(tx);
+    
+    status.textContent = '🔄 Sending transaction...';
+    
+    // Send
+    const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com', 'confirmed');
+    const signature = await connection.sendRawTransaction(signedTx.serialize());
+    
+    status.textContent = '🔄 Confirming...';
+    await connection.confirmTransaction(signature, 'confirmed');
+    
+    status.innerHTML = '✅ Merkle Tree Created!<br><a href="https://solscan.io/tx/' + signature + '" target="_blank">View on Solscan</a>';
+    btn.style.display = 'none';
+    
   } catch(e) {
-    status.textContent = 'Error: ' + e.message;
+    status.textContent = '❌ Error: ' + e.message;
+    console.error(e);
   }
 }
 </script>
-<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 </body></html>
